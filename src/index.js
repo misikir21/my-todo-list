@@ -26,24 +26,25 @@ const todos = [
   },
 ];
 
-const rendermytodolist = () => {
+const renderMyTodoList = () => {
   if (todos.length > 0) {
-    todos.forEach((todo) => {
-      const todoList = `<li data-index="${todo.index}" data-completed ="${todo.completed}">
-      <label for="${todo.index}">
-      <input type="checkbox" index="${todo.index}" value="${todo.index}"
-      ${todo.completed === 'complete' ? 'true' : false}/>
-      <input type="text" value="${todo.description}" readonly />
-      </label>
-          <div class="action">
+    const todoListHtml = todos.map((todo) => `
+      <li data-index="${todo.index}" data-completed="${todo.completed}">
+        <label for="${todo.index}">
+          <input type="checkbox" index="${todo.index}" value="${todo.index}"
+            ${todo.completed === 'complete' ? 'checked' : ''} />
+          <input type="text" value="${todo.description}" readonly />
+        </label>
+        <div class="action">
           <button class="js-delete">
-              <i class="ri-delete-bin-fill"></i>
+            <i class="ri-delete-bin-fill"></i>
           </button>
-          </div> 
-      </li>`;
-      todoBody.querySelector('.js-todo-list').innerHTML += todoList;
-    });
+        </div>
+      </li>
+    `).join('');
+
+    todoBody.querySelector('.js-todo-list').innerHTML = todoListHtml;
   }
 };
 
-rendermytodolist();
+renderMyTodoList();
