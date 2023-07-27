@@ -1,4 +1,4 @@
-# todo-list
+# Todo-list
 This is a simple to-do list application built with JavaScript, HTML, and CSS. It allows users to create a list of tasks with a description, completion status, and index.
 
 # 📗 Table of Contents
